@@ -145,14 +145,18 @@ public:
             OpenMap(double load_factor, size_t table_size){
                 load_factor = load_factor; 
                 table_size = table_size; 
-                entries = new Entry[table_size];                 
+                entries = new Entry[table_size]; 
+                curr_size = 0; 
             } // nondefault
             OpenMap(){
                 load_factor = DEFAULT_LOAD_FACTOR; 
                 table_size = DEFAULT_TABLE_SIZE; 
-                entries = new Entry[table_size];  
+                entries = new Entry[table_size]; 
+                curr_size = 0; 
             }
-            
+            ~OpenMap(){
+                delete [] entries; 
+            }
             void            insert(const std::string &key, const std::string &value);
             const Entry     search(const std::string &key);
             void            dump(std::ostream &os, DumpFlag flag);

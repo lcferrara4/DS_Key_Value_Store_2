@@ -80,6 +80,7 @@ int main(int argc, char *argv[]) {
 	std::string s = std::to_string(i);
 	assert(map->search(s) != NONE);
     }
+    map->dump(std::cout, DUMP_KEY_VALUE); 
 
     // Insert 1 - N (double)
     for (int i = 0; i < N; i++) {

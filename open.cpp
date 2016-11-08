@@ -12,7 +12,7 @@ void            OpenMap::insert(const std::string &key, const std::string &value
         if(curr_size + 1 / table_size >= load_factor || curr_size + 1 >= table_size){
             resize(table_size * (4/3)); 
         }
-        size_t index = locate(key);  
+        size_t index = locate(key); 
         entries[index] = std::make_pair(key, value); 
         curr_size++; 
 }
@@ -48,14 +48,14 @@ size_t          OpenMap::locate(const std::string &key) {
     size_t index = hfunc(key) % table_size; 
     
     while(entries[index] != NONE){
-        if(index >= table_size){
+        index++; 
+        if(index == table_size){
             index =0; 
         }
-        index++; 
         
     }
     
-    return index;
+return index;
 }
 
 void            OpenMap::resize(const size_t new_size) {
