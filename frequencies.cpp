@@ -34,6 +34,12 @@ void parse_command_line_options(int argc, char *argv[], Map *&map, DumpFlag &fla
                     map = new RBTreeMap();
                 } else if (strcasecmp(optarg, "treap") == 0) {
                     map = new TreapMap();
+                } else if(strcasecmp(optarg, "unordered") == 0){
+                    map = new UnorderedMap(); 
+                } else if(strcasecmp(optarg, "chained") == 0){
+                    map = new ChainedMap(); 
+                } else if(strcasecmp(optarg, "open") == 0){
+                    map = new OpenMap(); 
                 } else {
                     usage(1);
                 }
