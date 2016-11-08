@@ -47,7 +47,7 @@ size_t          OpenMap::locate(const std::string &key) {
     
     size_t index = hfunc(key) % table_size; 
     
-    while(entries[index] != NONE){
+    while(entries[index] != NONE && entries[index].first != key){
         index++; 
         if(index == table_size){
             index =0; 
