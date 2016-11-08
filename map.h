@@ -112,23 +112,60 @@ private:
 
 class ChainedMap : public Map {
 public:
+            ChainedMap(double load_factor, size_t table_size){
+                load_factor = load_factor; 
+                table_size = table_size; 
+                entries = new std::map<std::string, std::string> [table_size];   
+                curr_size = 0; 
+            } // nondefault
+            ChainedMap(){
+                load_factor = DEFAULT_LOAD_FACTOR; 
+                table_size = DEFAULT_TABLE_SIZE; 
+                entries = new std::map<std::string, std::string> [table_size]; 
+                curr_size = 0; 
+            }
+            ~ChainedMap(){
+                delete [] entries; 
+            }
             void            insert(const std::string &key, const std::string &value);
             const Entry     search(const std::string &key);
             void            dump(std::ostream &os, DumpFlag flag);
 
 private:
             void            resize(const size_t new_size);
+            StringHasher    hfunc; 
+            size_t table_size; 
+            std::map<std::string, std::string> *entries;
+            size_t curr_size; 
+            double load_factor; 
 };
 
 class OpenMap : public Map {
 public:
+            OpenMap(double load_factor, size_t table_size){
+                load_factor = load_factor; 
+                table_size = table_size; 
+                entries = new Entry[table_size];                 
+            } // nondefault
+            OpenMap(){
+                load_factor = DEFAULT_LOAD_FACTOR; 
+                table_size = DEFAULT_TABLE_SIZE; 
+                entries = new Entry[table_size];  
+            }
+            
             void            insert(const std::string &key, const std::string &value);
             const Entry     search(const std::string &key);
             void            dump(std::ostream &os, DumpFlag flag);
 
+
 private:
+            size_t table_size; 
+            size_t curr_size; 
+            double load_factor; 
             size_t          locate(const std::string &key);
             void            resize(const size_t new_size);
+            StringHasher    hfunc; 
+            Entry *entries; 
 };
 
 // vim: set sts=4 sw=4 ts=8 expandtab ft=cpp:
