@@ -175,30 +175,30 @@ store].
 
 | Backend    | Text            | File Size | Elapsed Time  | Memory          |
 |------------|-----------------|-----------|---------------|-----------------|
-| UNSORTED   | beowulf         | 21189     | 0.002s        |
-| SORTED     | beowulf         | 21189     | 0.003s        |
-| BST        | beowulf         | 21189     | 0.002s        |
-| RBTree     | beowulf         | 21189     | 0.003s        |
-| Treap      | beowulf         | 21189     | 0.004s        |
-| Unordered  | beowulf         | 21189     | 0.004s        |
-| Chained    | beowulf         | 21189     | 0.004s        |
+| UNSORTED   | beowulf         | 21189     | 0.059990s     | 1.328125 Mbytes |
+| SORTED     | beowulf         | 21189     | 0.035993s     | 1.324219 Mbytes |
+| BST        | beowulf         | 21189     | 0.008998s     | 1.343750 Mbytes |
+| RBTree     | beowulf         | 21189     | 0.008997s     | 1.363281 Mbytes |
+| Treap      | beowulf         | 21189     | 0.008998s     | 1.363281 Mbytes |
+| Unordered  | beowulf         | 21189     | 0.007998s     | 1.386719 Mbytes |
+| Chained    | beowulf         | 21189     | 0.007997s     | 1.414062 Mbytes |
 | Open       | beowulf         | 21189     | 0.029994s     | 1.347656 Mbytes |
-| UNSORTED   | peterpan        | 22260     | 0.002s        |
-| SORTED     | peterpan        | 22260     | 0.002s        |
-| BST        | peterpan        | 22260     | 0.001s        |
-| RBTree     | peterpan        | 22260     | 0.002s        |
-| Treap      | peterpan        | 22260     | 0.003s        |
-| Unordered  | peterpan        | 22260     | 0.003s        |
-| Chained    | peterpan        | 22260     | 0.003s        |
-| Open       | peterpan        | 22260     | 0.003s        |
-| UNSORTED   | junglebook      | 23057     | 0.003s        |
-| SORTED     | junglebook      | 23057     | 0.002s        |
-| BST        | junglebook      | 23057     | 0.001s        |
-| RBTree     | junglebook      | 23057     | 0.000s        |
-| Treap      | junglebook      | 23057     | 0.007s        |
-| Unordered  | junglebook      | 23057     | 0.007s        |
-| Chained    | junglebook      | 23057     | 0.007s        |
-| Open       | junglebook      | 23057     | 0.007s        |
+| UNSORTED   | peterpan        | 22260     | 0.065989s     | 1.332031 Mbytes |
+| SORTED     | peterpan        | 22260     | 0.038993s     | 1.328125 Mbytes |
+| BST        | peterpan        | 22260     | 0.008997s     | 1.343750 Mbytes |
+| RBTree     | peterpan        | 22260     | 0.009998s     | 1.367188 Mbytes |
+| Treap      | peterpan        | 22260     | 0.008998s     | 1.367188 Mbytes |
+| Unordered  | peterpan        | 22260     | 0.007997s     | 1.386719 Mbytes |
+| Chained    | peterpan        | 22260     | 0.007998s     | 1.417969 Mbytes |
+| Open       | peterpan        | 22260     | 0.032994s     | 1.367188 Mbytes |
+| UNSORTED   | junglebook      | 23057     | 0.066988s     | 1.332031 Mbytes |
+| SORTED     | junglebook      | 23057     | 0.038993s     | 1.328125 Mbytes |
+| BST        | junglebook      | 23057     | 0.008997s     | 1.347656 Mbytes |
+| RBTree     | junglebook      | 23057     | 0.009997s     | 1.367188 Mbytes |
+| Treap      | junglebook      | 23057     | 0.008997s     | 1.367188 Mbytes |
+| Unordered  | junglebook      | 23057     | 0.007998s     | 1.382812 Mbytes |
+| Chained    | junglebook      | 23057     | 0.007998s     | 1.417969 Mbytes |
+| Open       | junglebook      | 23057     | 0.033994s     | 1.378906 Mbytes |
 
 4. Conclusions:
 
