@@ -173,8 +173,8 @@ store].
 
 3. frequencies:
 
-| Backend    | Text            | File Size | Elapsed Time  | Memory    |
-|------------|-----------------|-----------|---------------|-----------|
+| Backend    | Text            | File Size | Elapsed Time  | Memory          |
+|------------|-----------------|-----------|---------------|-----------------|
 | UNSORTED   | beowulf         | 21189     | 0.002s        |
 | SORTED     | beowulf         | 21189     | 0.003s        |
 | BST        | beowulf         | 21189     | 0.002s        |
@@ -182,7 +182,7 @@ store].
 | Treap      | beowulf         | 21189     | 0.004s        |
 | Unordered  | beowulf         | 21189     | 0.004s        |
 | Chained    | beowulf         | 21189     | 0.004s        |
-| Open       | beowulf         | 21189     | 0.004s        |
+| Open       | beowulf         | 21189     | 0.029994s     | 1.347656 Mbytes |
 | UNSORTED   | peterpan        | 22260     | 0.002s        |
 | SORTED     | peterpan        | 22260     | 0.002s        |
 | BST        | peterpan        | 22260     | 0.001s        |

@@ -10,7 +10,7 @@ LIBRARY=	libmap.a
 LIB_SRC=	constants.cpp unsorted.cpp sorted.cpp bst.cpp rbtree.cpp treap.cpp unordered.cpp chained.cpp open.cpp
 LIB_OBJ=	$(LIB_SRC:.cpp=.o)
 
-PROGRAMS=	map_test map_bench frequencies
+PROGRAMS=	map_test map_bench frequencies measure
 
 all:		$(LIBRARY) $(PROGRAMS)
 
@@ -19,6 +19,9 @@ all:		$(LIBRARY) $(PROGRAMS)
 
 $(LIBRARY):	$(LIB_OBJ)
 	$(AR) $(ARFLAGS) $@ $(LIB_OBJ)
+
+measure:	measure.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
 map_test:	map_test.o map.h $(LIBRARY)
 	$(LD) $(LDFLAGS) -o $@ $< $(LIBRARY)
