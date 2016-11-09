@@ -69,13 +69,11 @@ void            OpenMap::resize(const size_t new_size) {
     
     entries = new Entry[new_size]; 
     
-    for(auto i=0; i<new_size; i++){
-        entries[i] = NONE; 
-    }
     for(auto i=0; i<old_size; i++){
         index = locate(temp[i].first); 
         entries[index] = std::make_pair(temp[i].first, temp[i].second); 
     }
+
     delete [] temp; 
 
 }
