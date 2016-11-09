@@ -8,9 +8,9 @@
 
 
 void            OpenMap::insert(const std::string &key, const std::string &value) {
-        
-        if(curr_size + 1 / table_size >= load_factor || curr_size + 1 >= table_size){
-            resize(table_size * (4/3)); 
+       
+        if((double)(curr_size + 1) / (double)table_size >= load_factor || curr_size + 1 >= table_size){
+            resize((double)table_size * ((double)4/(double)3)); 
         }
         size_t index = locate(key); 
         entries[index] = std::make_pair(key, value); 
@@ -32,11 +32,13 @@ void            OpenMap::dump(std::ostream &os, DumpFlag flag)
 {
 
     for(auto i = 0; i<table_size; i++){
-            switch (flag) {
-                case DUMP_KEY:          os << entries[i].first  << std::endl; break;
-                case DUMP_VALUE:        os << entries[i].second << std::endl; break;
-                case DUMP_KEY_VALUE:    os << entries[i].first  << "\t" << entries[i].second << std::endl; break;
-                case DUMP_VALUE_KEY:    os << entries[i].second << "\t" << entries[i].first  << std::endl; break;
+            if ( entries[i] != NONE ){
+                switch (flag) {
+                    case DUMP_KEY:          os << entries[i].first  << std::endl; break;
+                    case DUMP_VALUE:        os << entries[i].second << std::endl; break;
+                    case DUMP_KEY_VALUE:    os << entries[i].first  << "\t" << entries[i].second << std::endl; break;
+                    case DUMP_VALUE_KEY:    os << entries[i].second << "\t" << entries[i].first  << std::endl; break;
+                }
             }
     }
 
@@ -64,7 +66,6 @@ void            OpenMap::resize(const size_t new_size) {
     size_t index; 
     size_t old_size = table_size; 
     table_size = new_size; 
-    
     Entry * temp = entries;  
     
     entries = new Entry[new_size]; 
