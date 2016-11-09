@@ -49,15 +49,14 @@ void parse_command_line_options(int argc, char *argv[], Map *&map, int &nitems, 
                     if ( arg.length() == 7 ){
                         map = new ChainedMap();
                     } else {
-                        std::cout<<stod(arg.substr(8, arg.length()-8))<<std::endl; 
-                        map = new ChainedMap(stod(arg.substr(8, arg.length()-8)), DEFAULT_TABLE_SIZE);
+                        map = new ChainedMap(stod(arg.substr(8, arg.length()-8)), (size_t)DEFAULT_TABLE_SIZE);
                     }
                 } else if (strncasecmp(optarg, "open", 4) == 0) {
                     std::string arg(optarg);
                     if ( arg.length() == 4 ){
                         map = new OpenMap();
                     } else {
-                        map = new OpenMap(stod(arg.substr(5, arg.length()-5)), DEFAULT_TABLE_SIZE);
+                        map = new OpenMap(stod(arg.substr(5, arg.length()-5)), (size_t)DEFAULT_TABLE_SIZE);
                     }
                 } else {
                     usage(1);
