@@ -11,16 +11,16 @@ store].
 1. Complexities of map backends:
 	
 	* Unordered: 
-	Insert: Best = O(1), Average = O(1), Worst = O(1)
-	Search: Best = O(1), Average = O(n), Worst = O(n)
+	Insert: Best = O(1), Average = O(1), Worst = O(n)
+	Search: Best = O(1), Average = O(1), Worst = O(n)
 
 	* Chained:
-	Insert: Best = O(1), Average = O(n), Worst = O(n)
-	Search: Best = O(1), Average = O(n), Worst = O(n)
+	Insert: Best = O(1), Average = O(1), Worst = O(n)
+	Search: Best = O(1), Average = O(1), Worst = O(n)
 
 	* Open:
-	Insert: Best = O(1), Average = O(log(n)), Worst = O(n)
-	Search: Best = O(1), Average = O(log(n)), Worst = O(n)
+	Insert: Best = O(1), Average = O(1), Worst = O(n)
+	Search: Best = O(1), Average = O(1), Worst = O(n)
 
 2. map\_bench:
 
@@ -202,13 +202,11 @@ store].
 
 4. Conclusions:
 
-	* The unsorted and sorted implementations take INFINITY time to both insert and sort 1000000 and 10000000 items.  For the unsorted implementation, since the items are pushed into a vector in an unsorted order the vector becoes too large at n = 1000000 and 10000000 and the program cannot insert every value. The sorted implementation takes INFINTY time due to the fact that is must make n comparisons, in the worst case, to decide where the value is going in the map.   Padlength has little affect on these implementation as the search time varies the most with n. 
+	* Unordered implementation is efficient even when given large NITEMS. It is quicker for search than it is for insert. File size seems to have very little effect on this implementation and load factor isn't used. Unordered is better than chained for memory usage, but slightly worse than open. We believed that the unordered implementation of the map is the best of the new map implementations. It is fairly efficient for memory usage and time efficient for search/insert, even given large amounts of data.
 
-	* The BST implementation takes INFINITY time to insert and seach when n = 10000000 and padlength =4, and when n >= 1000000 and padlength = 8.  This occurs because the worst case for a BST is degenerating into a Linked List which would cause the list to become too large.  Padlength affects the BST implementation because as padlength increases the amount of data the implementation has to search for and insert increases causing a larger use of memory and time.  
+	* Chained implementation takes longer with more NITEMS, but never gets to infinite times for the sizes tested. Increased load factor seems to make chained slightly more inefficient, but not by much. It is more efficient to search than insert. Chained is the least efficient of the new map implementations for memory usage. File size doesn't have much effect on chained.
 
-	* The RBTree runs the fastest out of each implementation because both the average and  worst case complexity for searching and inserting are O(log(n)).  Padlength slightly affects the performance of the rbtree however the time to insert 10000000 items govers around 50 seconds and the time to search hovers around 20 s.  With smaller values of n the rbtree searches and insertes in a matter of milliseconds. Based on this experiment, we believe the RBTree to be the best map backend. 
-    
-	* The treap implementation never takes time INFINITY for any operation.  The implementation is not greatly affected by padlength as the insert time for each n value is around the same regardless of padlength.  The treap is slightly slower than the rbtree however is faster than each of the other implementations.  This is because the average case is logn.  
+	* Open implementation takes longer with higher NITEMS and larger filesize. A higher load factor really slows down the implementation, making it take INFINITE time for the largest NITEMS for both search and insert. Search is more efficient than insert. File size has more of an effect on open than the other implementations. It takes much longer to run frequency with open, but it is the more efficient for memory usage.
 
 5. Member contributions:
-    We all worked on the code together.  We worked in pairs or as a full threesome depending on who was free at the moment.  As always, we worked very well together, had great communication throughout the project, and kept to our initial timeline in order to finish early in the week.  The README is also a product of group effort and collaboration.  
+    We all worked on the code together. As always, we worked very well together, had great communication throughout the project, and kept to our initial timeline in order to finish early in the week.  The README is also a product of group effort and collaboration.  
