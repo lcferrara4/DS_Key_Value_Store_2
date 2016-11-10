@@ -112,9 +112,9 @@ private:
 
 class ChainedMap : public Map {
 public:
-            ChainedMap(double load_factor, size_t table_size){
-                load_factor = load_factor; 
-                table_size = table_size; 
+            ChainedMap(double in_load_factor, size_t in_table_size){
+                load_factor = in_load_factor; 
+                table_size = in_table_size; 
                 entries = new std::map<std::string, std::string> [table_size];   
                 curr_size = 0; 
             } // nondefault
@@ -142,9 +142,9 @@ private:
 
 class OpenMap : public Map {
 public:
-            OpenMap(double load_factor, size_t table_size){
-                load_factor = load_factor; 
-                table_size = table_size; 
+            OpenMap(double load_factor_in, size_t table_size_in){
+                load_factor = load_factor_in; 
+                table_size = table_size_in; 
                 entries = new Entry[table_size]; 
                 curr_size = 0; 
             } // nondefault
